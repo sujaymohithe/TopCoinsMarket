@@ -1,18 +1,18 @@
 import React from 'react';
 import './CoinMarket.css';
-import {Table} from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 const CoinMarket = props => {
     //below function is used to show coin market data in a table
     const populateCoinMarketTableRow = (row, index) => {
         return (
             <tr key={index}>
-                <td>{row.name}</td>
                 <td>{row.cmc_rank}</td>
-                <td>{row.quote.USD.price}</td>
-                <td>{row.quote.USD.percent_change_24h}</td>
-                <td>{row.quote.USD.market_cap}</td>
-                <td>{row.quote.USD && row.quote.USD.volume_24h}</td>
+                <td>{row.name}</td>                
+                <td>${row.quote.USD && row.quote.USD.price && row.quote.USD.price.toFixed(2)}</td>
+                <td>{row.quote.USD && row.quote.USD.percent_change_24h && row.quote.USD.percent_change_24h.toFixed(2)}%</td>
+                <td>${row.quote.USD && row.quote.USD.market_cap && row.quote.USD.market_cap.toFixed(2)}</td>
+                <td>${row.quote.USD && row.quote.USD.volume_24h && row.quote.USD.volume_24h.toFixed(2)}</td>
             </tr>
         );
     }

@@ -37,7 +37,8 @@ const Overview = props => {
     //to show records from 
     const startRecords = (page - 1) * parseInt(defaultRecords) + 1;
     //to show records till
-    const endingRecords = page * parseInt(defaultRecords);
+    const endingRecords = props.coinMarketData.length < defaultRecords ?
+        startRecords + (props.coinMarketData.length -1) : page * parseInt(defaultRecords);
     //if Max, set limit to 5000 as per API specification
     const max = defaultRecords === 'Max' ? maxLimit : parseInt(defaultRecords);
     const pageRecordsDropDown = ['10', '50', '100', 'Max'].map((val, index) => {

@@ -42,6 +42,7 @@ const LiquidityAnalysis = props => {
     const options = {
         chart: {
             type: 'scatter3d',
+            height: 700,
             options3d: {
                 enabled: true,
                 alpha: 20,
@@ -63,7 +64,11 @@ const LiquidityAnalysis = props => {
             min: minValueY,
             max: maxValueY,
             title: {
-                text: 'Volume'
+                text: 'Volume',
+                align: 'high',
+                offset: 0,
+                rotation: 0,
+                y: -40
             }
         },
         xAxis: {
@@ -71,15 +76,19 @@ const LiquidityAnalysis = props => {
             max: maxValueX,
             gridLineWidth: 1,
             title: {
-                text: 'Market Cap'
-            }
+                text: 'Market Cap',
+                offset: 50,
+                rotation: 0,
+            },
         },
         zAxis: {
             min: minValueZ,
             max: maxValueZ,
             showFirstLabel: false,
             title: {
-                text: 'Price change (24h)'
+                text: 'Price change (24h)',
+                align: 'high',
+                z: 50,
             }
         },
         legend: {
@@ -88,9 +97,9 @@ const LiquidityAnalysis = props => {
         tooltip: {
             formatter: function () {
                 return `Name: ${this.series.name}<br/>
-                Market Cap: ${this.point.x}<br/>
-                  Volume: ${this.point.y}<br/>
-                  Price Change: ${this.point.z}`;
+                Market Cap ($): ${this.point.x}<br/>
+                  Volume ($): ${this.point.y}<br/>
+                  Absolute Price ($): ${this.point.z}`;
             }
         },
         plotOptions: {
@@ -120,7 +129,7 @@ const LiquidityAnalysis = props => {
         <HighchartsReact
             highcharts={Highcharts}
             options={options}
-        />        
+        />
     )
 }
 
