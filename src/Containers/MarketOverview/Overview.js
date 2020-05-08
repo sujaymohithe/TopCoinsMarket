@@ -7,7 +7,7 @@ import { PAGE_DISPLAY } from '../../AppConstants';
 const Overview = props => {
     let [page, setPage] = useState(1);
     let [defaultRecords, setDefaultRecords] = useState('100');
-    let limit, start, maxLimit = 5000;
+    let limit, start, maxLimit = 5000;//According to API Specification - limit is 5000
 
     //Next page button - get new table data based on page number and number of records limit selected in dropdown
     const nextButtonClickhandler = () => {
@@ -39,6 +39,7 @@ const Overview = props => {
     //to show records till
     const endingRecords = props.coinMarketData.length < defaultRecords ?
         startRecords + (props.coinMarketData.length -1) : page * parseInt(defaultRecords);
+    
     //if Max, set limit to 5000 as per API specification
     const max = defaultRecords === 'Max' ? maxLimit : parseInt(defaultRecords);
     const pageRecordsDropDown = ['10', '50', '100', 'Max'].map((val, index) => {

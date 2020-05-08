@@ -8,14 +8,14 @@ highcharts3d(Highcharts);
 const LiquidityAnalysis = props => {
     let plotData = props.coinMarketData;
     //Calculate min and max value for chart x-axis line
-    let MCValues = plotData.map(function (v) {
+    const MCValues = plotData.map(function (v) {
         return v.quote.USD.market_cap;
     });
     const maxValueX = Math.max.apply(null, MCValues);
     const minValueX = Math.min.apply(null, MCValues);
 
     //Calculate min and max value for chart y-axis line
-    let volumeValues = plotData.map(function (v) {
+    const volumeValues = plotData.map(function (v) {
         return v.quote.USD.volume_24h;
     });
     const maxValueY = Math.max.apply(0, volumeValues);
@@ -23,7 +23,7 @@ const LiquidityAnalysis = props => {
 
     //Calculate min and max value for chart z-axis, calculating obsolute price here
     //obsolute price calculation below is my understanding
-    let PCValues = plotData.map(function (v) {
+    const PCValues = plotData.map(function (v) {
         return v.quote.USD.price + ((v.quote.USD.percent_change_24h / 100) * v.quote.USD.price);
     });
     const maxValueZ = Math.max.apply(0, PCValues);
