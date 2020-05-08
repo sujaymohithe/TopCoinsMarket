@@ -21,20 +21,20 @@ const LiquidityAnalysis = props => {
     const maxValueY = Math.max.apply(0, volumeValues);
     const minValueY = Math.min.apply(0, volumeValues);
 
-    //Calculate min and max value for chart z-axis line
+    //Calculate min and max value for chart z-axis, calculating obsolute price here
+    //obsolute price calculation below is my understanding
     let PCValues = plotData.map(function (v) {
-        return v.quote.USD.price;
+        return v.quote.USD.price + ((v.quote.USD.percent_change_24h / 100) * v.quote.USD.price);
     });
     const maxValueZ = Math.max.apply(0, PCValues);
     const minValueZ = Math.min.apply(0, PCValues);
-
     //converting response aray to required array format for plotting
     plotData = plotData.map((eachPlot, index) => {
         return {
             "name": eachPlot.name,
             "data": [[eachPlot.quote.USD.market_cap,
             eachPlot.quote.USD.volume_24h,
-            eachPlot.quote.USD.price
+            eachPlot.quote.USD.price + ((eachPlot.quote.USD.percent_change_24h / 100) * eachPlot.quote.USD.price)
             ]]
         }
     });
