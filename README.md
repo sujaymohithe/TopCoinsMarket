@@ -1,4 +1,4 @@
-## TOPCOINSMARKET
+## TOPCOINSMARKET https://topcoinsmarket.herokuapp.com/
 
 ### `ABOUT PROJECT`
 This is single page React application that allows for a simple analysis of crypto assets. This contains two sections, one is market overview and second is liquidity analysis. <br/> The data is fetched from coinmarketcap API, please refer API documentation available at https://coinmarketcap.com/api/documentation/v1/.
@@ -6,6 +6,8 @@ By default landing screen returns top 100 coins. There is an option to change nu
 There is navigation provided to Liquidity analysis page. This screen displays a scatter plot chart for rendered current table (tab 1) records with X axis having Market Capitalization, Y axis is Volume (24h) and Z axis is absolute price change (24h).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+`The application is hosted on link https://topcoinsmarket.herokuapp.com/`
 
 ## Available Scripts
 
@@ -63,6 +65,7 @@ React components read data from a Redux store, and dispatch actions to the store
 - Webpage is responsive and supported on different devices. Use chrome `Toogle device toolbar` to view different window layout such as small  devices (mobiles and tabs).
 
 ### `SUPPORTED BROWSERS`
+https://topcoinsmarket.herokuapp.com/
 Application is best viewed in latest chrome browser, safari and firefox. please refer to `development` section in package.json for supported browsers. <u>Application is not supported in Internet explorer due to latest create react app feature.</u>
 
 ## Other Aspects 
