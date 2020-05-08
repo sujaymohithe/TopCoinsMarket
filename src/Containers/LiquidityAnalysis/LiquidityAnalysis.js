@@ -45,14 +45,23 @@ const LiquidityAnalysis = () => {
             min: 0,
             max: 10,
             showFirstLabel: false,
-            title : {
-                text : 'Price change (24h)'
+            title: {
+                text: 'Price change (24h)'
             }
         },
         legend: {
-            enabled: true
-          },
-          plotOptions: {
+            enabled: false
+        },
+        tooltip: {
+            formatter: function () {
+                debugger;
+                return `Name: ${this.series.name}<br/>
+                Market Cap: ${this.point.x}<br/>
+                  Volume: ${this.point.y}<br/>
+                  Price Change: ${this.point.z}`;
+            }
+        },
+        plotOptions: {
             scatter: {
                 marker: {
                     radius: 5,
@@ -66,27 +75,41 @@ const LiquidityAnalysis = () => {
                 states: {
                     hover: {
                         marker: {
-                            enabled: false
+                            enabled: true
                         }
                     }
                 },
-                tooltip: {
-                    headerFormat: '<b>{series.name}</b><br>',
-                    pointFormat: 'market cap {point.x} ,volume {point.y}, price change {point.z}'
-                }
+                // tooltip: {
+                //     formatter: function () {
+                //         const chart = this.point.series.chart,
+                //             catsX = chart.xAxis[0].categories,
+                //             catsY = chart.yAxis[0].categories,
+                //             catsZ = chart.zAxis[0].options.categories;
+                //         return `X: ${catsX[this.point.x]}<br/>
+                //           Y: ${catsY[this.point.y]}<br/>
+                //           Z: ${catsZ[this.point.z]}`;
+                //     }
+                // },
             }
         },
         series: [{
-            name: 'Female',
-            data: [[1,2,3], [1,4,5]]
-        
-          }]
+            "name": 'Data',
+            "data": [[1.5, 2, 3]]
+        },
+        {
+            "name": 'SQL',
+            "data": [[8, 6, 3]]
+        },
+        {
+            "name": 'Plain',
+            "data": [[3, 5, 3]]
+        }]
     }
 
     return (
         <HighchartsReact
             highcharts={Highcharts}
-            options={options} 
+            options={options}
         />
     )
 }
