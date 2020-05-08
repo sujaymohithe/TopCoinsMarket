@@ -10,10 +10,11 @@ const HomeLayout = props => {
         GetCryptoCurrencyData();
     }, [GetCryptoCurrencyData]);
     return (
-        <div className="overview-body">
+        <div>
             <Container>
                 {props.cryptoCurrencyData &&
-                    <Overview coinMarketData={props.cryptoCurrencyData.data} />}
+                    <Overview coinMarketData={props.cryptoCurrencyData.data}
+                        GetCryptoCurrencyData={GetCryptoCurrencyData} />}
             </Container>
         </div>
     )
@@ -31,7 +32,7 @@ const mapStateToProps = state => {
 //these functions will be accessible via props in child components
 const mapDispatchToProps = dispatch => {
     return {
-        GetCryptoCurrencyData: () => dispatch(actions.GetCryptoCurrencyData())
+        GetCryptoCurrencyData: (start, limit) => dispatch(actions.GetCryptoCurrencyData(start, limit))
     };
 };
 

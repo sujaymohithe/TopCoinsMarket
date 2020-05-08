@@ -1,3 +1,12 @@
 .overview-body {
     margin-top: 82px;
 }
+
+.form-table{
+    padding: 10px;
+}
+
+.form-select{
+    width: 20% !important;
+    padding-left: 25px;
+}

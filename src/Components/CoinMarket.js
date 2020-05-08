@@ -1,5 +1,6 @@
 import React from 'react';
 import './CoinMarket.css';
+import {Table} from 'react-bootstrap';
 
 const CoinMarket = props => {
     //below function is used to show coin market data in a table
@@ -19,7 +20,7 @@ const CoinMarket = props => {
     return (
         <div>
             <br />
-            <table className="table table-striped table-box">
+            <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
                         <th>Rank</th>
@@ -34,7 +35,7 @@ const CoinMarket = props => {
                     {props.data &&
                         props.data.map((eachRow, index) => populateCoinMarketTableRow(eachRow, index))}
                 </tbody>
-            </table>
+            </Table>
         </div>
     );
 }
