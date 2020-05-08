@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 import * as appConstants from '../../AppConstants';
-import data from '../../dataset/data';
+//import data from '../../dataset/data';
 
 //get CryptoCurrency data start dispatch method
 export const getCryptoCurrencyDataStart = () => {
